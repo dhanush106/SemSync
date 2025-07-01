@@ -55,7 +55,7 @@ const Quiz = () => {
   useEffect(() => {
     if (user) {
       axios
-        .get('http://localhost:5000/api/quiz/history', {
+        .get('https://semsync.onrender.com/api/quiz/history', {
           withCredentials: true,
         })
         .then((res) => setQuizHistory(res.data.history))
@@ -72,7 +72,7 @@ const Quiz = () => {
     setIsLoading(true);
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/quiz/generate',
+        'https://semsync.onrender.com/api/quiz/generate',
         {
           topic,
           numQuestions,
@@ -122,7 +122,7 @@ const Quiz = () => {
 
     try {
       await axios.post(
-        'http://localhost:5000/api/quiz/save-history',
+        'https://semsync.onrender.com/api/quiz/save-history',
         {
           topic,
           score: finalScore,
@@ -132,7 +132,7 @@ const Quiz = () => {
         },
         { withCredentials: true }
       );
-      const historyRes = await axios.get('http://localhost:5000/api/quiz/history', {
+      const historyRes = await axios.get('https://semsync.onrender.com/api/quiz/history', {
         withCredentials: true,
       });
       setQuizHistory(historyRes.data.history);

@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useAuth } from './AuthContext';
 import { useNavigate } from 'react-router-dom';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://semsync.onrender.com/api';
 
 const Subjects = () => {
   const { user, logout } = useAuth();

@@ -16,7 +16,7 @@ export function AuthProvider({ children }) {
 
   const checkAuth = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/check-auth', {
+      const response = await axios.get('https://semsync.onrender.com/check-auth', {
         withCredentials: true
       });
       if (response.data.isAuthenticated) {
@@ -35,7 +35,7 @@ export function AuthProvider({ children }) {
 
   const logout = async () => {
     try {
-      await axios.post('http://localhost:5000/logout', {}, { 
+      await axios.post('https://semsync.onrender.com/logout', {}, { 
         withCredentials: true 
       });
       setUser(null);

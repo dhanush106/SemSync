@@ -16,7 +16,7 @@ const DailyTracker = () => {
   const [draggedTaskId, setDraggedTaskId] = useState(null);
 
   const api = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://semsync.onrender.com',
     withCredentials: true,
     headers: {
       'Content-Type': 'application/json',

@@ -17,7 +17,7 @@ const Doubt = () => {
 
   const fetchHistory = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/ai/history', { credentials: 'include' });
+      const res = await fetch('https://semsync.onrender.com/api/ai/history', { credentials: 'include' });
       if (!res.ok) throw new Error('Fetch error');
       const data = await res.json();
       setHistory(data);
@@ -41,7 +41,7 @@ const Doubt = () => {
     setError(null);
 
     try {
-      const res = await fetch('http://localhost:5000/api/ai/search', {
+      const res = await fetch('https://semsync.onrender.com/api/ai/search', {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -65,7 +65,7 @@ const Doubt = () => {
 
   const deleteHistoryItem = async (id) => {
     try {
-      await fetch(`http://localhost:5000/api/ai/history/${id}`, {
+      await fetch(`https://semsync.onrender.com/api/ai/history/${id}`, {
         method: 'DELETE',
         credentials: 'include'
       });
@@ -78,7 +78,7 @@ const Doubt = () => {
   const deleteAllHistory = async () => {
     if (!window.confirm("Are you sure you want to delete all search history?")) return;
     try {
-      await fetch('http://localhost:5000/api/ai/history', {
+      await fetch('https://semsync.onrender.com/api/ai/history', {
         method: 'DELETE',
         credentials: 'include'
       });

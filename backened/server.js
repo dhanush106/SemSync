@@ -26,6 +26,9 @@ for (const v of requiredEnvVars) {
 
 const app = express();
 
+// ✅ Add this line
+app.set('trust proxy', 1);
+
 app.use(cors({
   origin: 'http://localhost:5173',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],

@@ -12,7 +12,7 @@ function GPA() {
   useEffect(() => {
     const fetchSubjects = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/get-subjects", { credentials: 'include' });
+        const res = await fetch("https://semsync.onrender.com/api/get-subjects", { credentials: 'include' });
         const data = await res.json();
         const subjectsWithId = (data.subjects || []).map(sub => ({
           ...sub,
@@ -56,7 +56,7 @@ function GPA() {
   const handleSubmit = async () => {
     const finalGPA = calculateGPA(subjects);
     setGpa(finalGPA);
-    await fetch("http://localhost:5000/api/save-subjects", {
+    await fetch("https://semsync.onrender.com/api/save-subjects", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',

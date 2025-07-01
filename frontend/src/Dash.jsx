@@ -17,7 +17,7 @@ import BookClock from './components/BookClock';
 import './Dash.css';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: 'https://semsync.onrender.com/api',
   withCredentials: true,
 });
 

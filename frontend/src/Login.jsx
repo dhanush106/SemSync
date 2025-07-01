@@ -48,7 +48,7 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = isLogin ? "http://localhost:5000/login" : "http://localhost:5000/signup";
+    const url = isLogin ? "https://semsync.onrender.com/login" : "https://semsync.onrender.com/signup";
     const data = isLogin
       ? { identifier, password }
       : { email: identifier, password, confirmPassword, username };
@@ -78,7 +78,7 @@ export default function Login() {
 
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
-      const res = await axios.post("http://localhost:5000/google-login", {
+      const res = await axios.post("https://semsync.onrender.com/google-login", {
         token: credentialResponse.credential,
       }, {
         withCredentials: true
