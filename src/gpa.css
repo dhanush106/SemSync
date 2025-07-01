@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #e0f7fa, #e1bee7);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Dashboard container */
+.gpa-dashboard {
+  margin-left: 250px;
+
+background:white;
+
+color: #555;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  max-width: 800px;
+  width: 90%;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Headings & GPA */
+.gpa-heading {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.gpa-score {
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+  font-weight: 600;
+  color: #444;
+}
+
+/* Add & Submit Buttons */
+.gpa-add-btn,
+.gpa-submit-btn {
+  background: linear-gradient(to right, #1976d2, #42a5f5);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(25, 118, 210, 0.4);
+  margin-top: 10px;
+}
+
+.gpa-add-btn:hover,
+.gpa-submit-btn:hover {
+  background: linear-gradient(to right, #1565c0, #1e88e5);
+  box-shadow: 0 6px 18px rgba(21, 101, 192, 0.5);
+}
+
+/* Subject grid */
+.gpa-subject-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.gpa-subject-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.65);
+  padding: 16px 20px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Inputs and selects */
+.gpa-input,
+.gpa-select {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  background-color: #fff;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gpa-input {
+  width: 160px;
+}
+
+.gpa-credit-input {
+  width: 100px;
+}
+
+.gpa-input:focus,
+.gpa-select:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2);
+  outline: none;
+}
+
+/* Delete Button */
+.gpa-delete-btn {
+  background: linear-gradient(to right, #ef5350, #e53935);
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 3px 8px rgba(239, 83, 80, 0.3);
+}
+
+.gpa-delete-btn:hover {
+  background: #d32f2f;
+  box-shadow: 0 5px 10px rgba(211, 47, 47, 0.35);
+}

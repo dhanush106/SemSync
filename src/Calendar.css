@@ -1,0 +1,362 @@
+/* DailyTracker.css */
+
+:root {
+  --primary-color: #4fc3f7;
+  --primary-light: #81d4fa;
+  --primary-dark: #29b6f6;
+  --background: #e0f7fa;
+  --background-light: #f7f9fc;
+  --success-color: #2ecc71;
+  --success-light: #e8fce8;
+  --text-color: #333;
+  --text-light: #777;
+  --shadow-light: #b0dfe5;
+  --shadow-dark: #a0d8e0;
+  --white: #ffffff;
+  --border-radius: 15px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--background);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Layout Styles */
+.tracker-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 90vh;
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+.tracker-header {
+  text-align: center;
+  background: var(--primary-light);
+  border-radius: var(--border-radius);
+  box-shadow: 10px 10px 20px var(--shadow-dark), -10px -10px 20px var(--white);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Add these to your DailyTracker.css file */
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  background: var(--white);
+  border-radius: 8px;
+  cursor: grab;
+  transition: all 0.2s ease;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.task-text {
+  flex-grow: 1;
+  margin-right: 0.5rem;
+}
+
+.delete-task-btn {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+
+.task-item:hover .delete-task-btn {
+  opacity: 1;
+}
+
+.delete-task-btn:hover {
+  background: #ff5252;
+  transform: scale(1.1);
+}
+
+/* Update the task-item hover effect */
+.task-item:hover {
+  transform: translateX(5px);
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.15);
+}
+
+.tracker-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tracker-body {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Calendar Styles */
+.calendar {
+  flex: 1;
+  min-width: 450px;
+  background: var(--background);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  box-shadow: 10px 10px 20px var(--shadow-light), -10px -10px 20px var(--white);
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1.6rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.calendar-day {
+  padding: 0.75rem;
+  background: var(--background-light);
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-day:hover:not(.active) {
+  background: var(--primary-light);
+  color: var(--white);
+}
+
+.calendar-day.active {
+  background: var(--primary-color);
+  color: var(--white);
+  font-weight: bold;
+  transform: scale(1.05);
+}
+
+.calendar-day.empty {
+  visibility: hidden;
+}
+
+.today-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.today-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Task Section Styles */
+.tasks-section {
+  flex: 2;
+  min-width: 400px;
+}
+
+.tasks-section.two-columns {
+  display: flex;
+  gap: 1rem;
+}
+
+.task-card {
+  flex: 1;
+  background: var(--background);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  box-shadow: inset 8px 8px 16px var(--shadow-light), inset -8px -8px 16px var(--white);
+  min-height: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.task-card.completed {
+  background: var(--success-light);
+}
+
+.task-item {
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  background: var(--white);
+  border-radius: 8px;
+  cursor: grab;
+  transition: all 0.2s ease;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.task-item:hover {
+  transform: translateX(5px);
+}
+
+.task-item.remaining-tasks {
+  border-left: 4px solid var(--primary-color);
+}
+
+.task-item.completed-tasks {
+  border-left: 4px solid var(--success-color);
+}
+
+/* Scrollbar Styles */
+.task-card::-webkit-scrollbar {
+  width: 8px;
+}
+
+.task-card::-webkit-scrollbar-track {
+  background: var(--background-light);
+  border-radius: 10px;
+}
+
+.task-card::-webkit-scrollbar-thumb {
+  background-color: var(--primary-light);
+  border-radius: 10px;
+}
+
+.task-card.completed::-webkit-scrollbar-thumb {
+  background-color: var(--success-color);
+}
+
+.task-card {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-light) var(--background-light);
+}
+
+.task-card.completed {
+  scrollbar-color: var(--success-color) var(--background-light);
+}
+
+/* Journal Section Styles */
+.journal-section {
+  background: var(--background);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: 10px 10px 20px var(--shadow-light), -10px -10px 20px var(--white);
+}
+
+.journal-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.journal-fields label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.journal-fields select,
+.journal-fields input,
+.journal-fields textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 10px;
+  box-shadow: inset 5px 5px 10px var(--shadow-light), inset -5px -5px 10px var(--white);
+  background: var(--background-light);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.journal-fields select:focus,
+.journal-fields input:focus,
+.journal-fields textarea:focus {
+  outline: none;
+  box-shadow: inset 2px 2px 5px var(--shadow-light), inset -2px -2px 5px var(--white);
+}
+
+.journal-fields textarea {
+  height: 120px;
+  resize: vertical;
+  grid-column: 1 / -1;
+}
+
+.save-btn {
+  grid-column: 1 / -1;
+  background: var(--primary-color);
+  color: var(--white);
+  padding: 0.75rem;
+  border: none;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.save-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Date Section Styles */
+.tracker-date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--background);
+  border-radius: var(--border-radius);
+  padding: 1rem 2rem;
+  box-shadow: inset 10px 10px 20px var(--shadow-light), inset -10px -10px 20px var(--white);
+}
+
+.add-task {
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.add-task:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .tracker-body {
+    flex-direction: column;
+  }
+  
+  .tasks-section.two-columns {
+    flex-direction: column;
+  }
+  
+  .journal-fields {
+    grid-template-columns: 1fr;
+  }
+}
