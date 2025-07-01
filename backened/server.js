@@ -30,7 +30,7 @@ const app = express();
 app.set('trust proxy', 1);
 
 app.use(cors({
-  origin: 'https://semsync.netlify.app/',
+  origin: 'https://semsync-7pz3.onrender.com',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
